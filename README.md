@@ -1,4 +1,4 @@
-# ai
+# dazi
 
 Shared agent setup for my machines: coding standards, Codex delegation policy,
 and skills, installable into both Claude Code and Codex as a plugin.

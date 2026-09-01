@@ -9,7 +9,7 @@ Check the diff against main and remove AI-generated slop introduced in the branc
 
 ## Focus Areas
 
-- Extra comments that are unnecessary or inconsistent with local style
+- Slop comments — apply the `prune-comments` skill's test for this dimension
 - Defensive checks or try/catch blocks that are abnormal for trusted code paths
 - Casts to `any` used only to bypass type issues
 - Deeply nested code that should be simplified with early returns
