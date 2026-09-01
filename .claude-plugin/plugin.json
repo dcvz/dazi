@@ -1,0 +1,9 @@
+{
+  "name": "ai",
+  "description": "David's shared agent setup: coding standards, Codex delegation policy, and skills",
+  "author": {
+    "name": "David Chavez"
+  },
+  "homepage": "https://github.com/dcvz/ai",
+  "repository": "https://github.com/dcvz/ai"
+}

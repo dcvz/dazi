@@ -1,0 +1,13 @@
+{
+  "name": "dcvz",
+  "owner": {
+    "name": "David Chavez"
+  },
+  "plugins": [
+    {
+      "name": "ai",
+      "source": "./",
+      "description": "David's shared agent setup: coding standards, Codex delegation policy, and skills"
+    }
+  ]
+}

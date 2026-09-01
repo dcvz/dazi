@@ -1,0 +1,11 @@
+{
+  "name": "ai",
+  "version": "0.1.0",
+  "description": "David's shared agent setup: coding standards and skills",
+  "author": {
+    "name": "David Chavez"
+  },
+  "homepage": "https://github.com/dcvz/ai",
+  "repository": "https://github.com/dcvz/ai",
+  "skills": "./skills/"
+}
