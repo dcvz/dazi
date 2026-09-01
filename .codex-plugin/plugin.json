@@ -1,6 +1,6 @@
 {
   "name": "dazi",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "David's shared agent setup: coding standards and skills",
   "author": {
     "name": "David Chavez"
@@ -8,5 +8,5 @@
   "homepage": "https://github.com/dcvz/dazi",
   "repository": "https://github.com/dcvz/dazi",
   "skills": "./skills/",
-  "hooks": "./hooks.json"
+  "hooks": "./hooks/hooks.json"
 }
