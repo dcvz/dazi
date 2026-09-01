@@ -1,0 +1,7 @@
+/Users/ci/dev/ai/.devenv/bootstrap/bootstrapLib.nix
+/Users/ci/dev/ai/.devenv/bootstrap/default.nix
+/Users/ci/dev/ai/.devenv/bootstrap/resolve-lock.nix
+/Users/ci/dev/ai/devenv.local.nix
+/Users/ci/dev/ai/devenv.lock
+/Users/ci/.config/nixpkgs/overlays
+/Users/ci/.config/nixpkgs/overlays.nix
