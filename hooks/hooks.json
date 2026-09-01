@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "{ grep -qs \"BEGIN standards\" \"$HOME/.codex/AGENTS.md\" || cat \"${CLAUDE_PLUGIN_ROOT}/AGENTS.md\"; } ; cat \"${CLAUDE_PLUGIN_ROOT}/CLAUDE.md\""
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/session-start\""
           }
         ]
       }

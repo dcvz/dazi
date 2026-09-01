@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# SessionStart: inject the standards and Claude-only policy as structured JSON.
+# Must never fail or block session start; always exits 0.
+set -u
+
+ROOT="${CLAUDE_PLUGIN_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
+
+ctx=""
+# A sync-managed machine already gets the standards through the
+# ~/.claude/CLAUDE.md import of the stamped file; don't deliver them twice.
+if ! grep -qs "BEGIN standards" "$HOME/.codex/AGENTS.md"; then
+  ctx="$(cat "$ROOT/AGENTS.md" 2>/dev/null)"$'\n\n'
+fi
+ctx="$ctx$(cat "$ROOT/CLAUDE.md" 2>/dev/null)"
+
+s="$ctx"
+s="${s//\\/\\\\}"
+s="${s//\"/\\\"}"
+s="${s//$'\n'/\\n}"
+s="${s//$'\t'/\\t}"
+s="${s//$'\r'/\\r}"
+
+printf '{"hookSpecificOutput":{"hookEventName":"SessionStart","additionalContext":"%s"}}\n' "$s"
+exit 0

@@ -1,0 +1,35 @@
+# Codex caches plugins per version, so payload changes must bump
+# .codex-plugin/plugin.json or Codex installs never see them.
+name: bump-codex-version
+on:
+  push:
+    branches: [main]
+    paths: ['skills/**', 'agents/**', 'hooks/**', 'AGENTS.md', 'CLAUDE.md']
+permissions:
+  contents: write
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: |
+          BASE='${{ github.event.before }}'
+          if git cat-file -e "$BASE" 2>/dev/null \
+             && git diff "$BASE" HEAD -- .codex-plugin/plugin.json | grep -q '"version"'; then
+            echo "version already bumped in this push"; exit 0
+          fi
+          python3 - <<'PYEOF'
+          import json, pathlib
+          p = pathlib.Path('.codex-plugin/plugin.json')
+          d = json.loads(p.read_text())
+          major, minor, patch = d['version'].split('.')
+          d['version'] = f"{major}.{minor}.{int(patch) + 1}"
+          p.write_text(json.dumps(d, indent=2) + '\n')
+          print(d['version'])
+          PYEOF
+          git config user.name github-actions
+          git config user.email github-actions[bot]@users.noreply.github.com
+          git commit -am "chore: bump codex plugin version"
+          git push

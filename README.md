@@ -32,8 +32,8 @@ toggle it in `/plugin` → Marketplaces → dcvz, or set `"autoUpdate": true` on
 the `extraKnownMarketplaces.dcvz` entry in `~/.claude/settings.json`.
 
 Codex resolves plugin versions from `.codex-plugin/plugin.json` and caches per
-version, so bump that version when skills change; any `codex plugin
-marketplace upgrade` (the sync runs one) picks it up.
+version. CI bumps that version whenever the payload changes, and any
+`codex plugin marketplace upgrade` (the sync runs one) picks it up.
 
 ## Optional: always-on standards for Codex (my fleet)
 
