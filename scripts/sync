@@ -8,11 +8,11 @@
 #   Claude updates the plugin itself once auto-update is enabled for it)
 set -euo pipefail
 
-CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/dcvz-ai"
+CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/dazi"
 if [ -d "$CACHE/.git" ]; then
   git -C "$CACHE" pull -q --ff-only
 else
-  git clone -q git@github.com:dcvz/ai.git "$CACHE"
+  git clone -q git@github.com:dcvz/dazi.git "$CACHE"
 fi
 
 mkdir -p "$HOME/.codex" "$HOME/.claude"

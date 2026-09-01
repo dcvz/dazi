@@ -13,16 +13,16 @@ What lives where:
 - `CLAUDE.md` — Claude-only policy, injected each session by the plugin's
   SessionStart hook. Updates ride plugin auto-update, no sync involved.
 - `skills/`, `agents/` — shared by both plugin manifests. Plugin skills are
-  namespaced: `/ai:deslop`, `/ai:prune-comments`, `/ai:codex-delegate`.
+  namespaced: `/dazi:deslop`, `/dazi:prune-comments`, `/dazi:codex-delegate`.
 
 ## Install (once per machine)
 
 ```
-claude plugin marketplace add git@github.com:dcvz/ai.git
-claude plugin install ai@dcvz
-codex plugin marketplace add git@github.com:dcvz/ai.git
-codex plugin add ai@dcvz
-git clone git@github.com:dcvz/ai.git ~/.cache/dcvz-ai && ~/.cache/dcvz-ai/scripts/sync
+claude plugin marketplace add git@github.com:dcvz/dazi.git
+claude plugin install dazi@dcvz
+codex plugin marketplace add git@github.com:dcvz/dazi.git
+codex plugin add dazi@dcvz
+git clone git@github.com:dcvz/dazi.git ~/.cache/dazi && ~/.cache/dazi/scripts/sync
 ```
 
 The ssh URL matters: the repo is private, so the `owner/repo` shorthand can't
@@ -40,7 +40,7 @@ the crontab command from a real terminal so you can approve the one-time TCC
 prompt (a headless agent hangs on it; a launchd agent works too):
 
 ```
-( crontab -l 2>/dev/null; echo '17 9 * * * $HOME/.cache/dcvz-ai/scripts/sync >/dev/null 2>&1' ) | crontab -
+( crontab -l 2>/dev/null; echo '17 9 * * * $HOME/.cache/dazi/scripts/sync >/dev/null 2>&1' ) | crontab -
 ```
 
 Codex resolves plugin versions from `.codex-plugin/plugin.json` and caches per

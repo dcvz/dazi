@@ -1,4 +1,4 @@
-<!-- BEGIN standards (managed by github.com/dcvz/ai - scripts/sync) -->
+<!-- BEGIN standards (managed by github.com/dcvz/dazi - scripts/sync) -->
 Shared coding standards for every agent on this machine. Claude Code imports this
 file from `~/.claude/CLAUDE.md`; Codex reads it directly as global instructions.
 Keep it tool-neutral. Tool-specific rules belong in the tool's own config.

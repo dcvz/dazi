@@ -1,9 +1,9 @@
 {
-  "name": "ai",
+  "name": "dazi",
   "description": "David's shared agent setup: coding standards, Codex delegation policy, and skills",
   "author": {
     "name": "David Chavez"
   },
-  "homepage": "https://github.com/dcvz/ai",
-  "repository": "https://github.com/dcvz/ai"
+  "homepage": "https://github.com/dcvz/dazi",
+  "repository": "https://github.com/dcvz/dazi"
 }

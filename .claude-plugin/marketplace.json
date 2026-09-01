@@ -5,9 +5,12 @@
   },
   "plugins": [
     {
-      "name": "ai",
+      "name": "dazi",
       "source": "./",
       "description": "David's shared agent setup: coding standards, Codex delegation policy, and skills"
     }
-  ]
+  ],
+  "metadata": {
+    "description": "David's plugins"
+  }
 }
