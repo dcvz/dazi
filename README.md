@@ -12,25 +12,31 @@ codex plugin marketplace add git@github.com:dcvz/dazi.git
 codex plugin add dazi@dcvz
 ```
 
-That's it. On Claude the plugin is self-contained: a SessionStart hook injects
+Then two one-time steps:
+
+1. Claude auto-update: `/plugin` → Marketplaces → dcvz → Enable auto-update
+   (or set `"autoUpdate": true` on the `extraKnownMarketplaces.dcvz` entry in
+   `~/.claude/settings.json`).
+2. Launch `codex` interactively once and accept the "Hooks need review" prompt
+   ("Trust all and continue"). Codex won't run the session hook until it's
+   trusted, and it re-asks whenever the hook changes.
+
+On Claude the plugin is self-contained: a SessionStart hook injects
 the standards (`AGENTS.md`) and the Claude-only policy (`CLAUDE.md`) into every
 session, and the skills come along namespaced (`/dazi:deslop`,
 `/dazi:prune-comments`, `/dazi:codex-delegate`, `/dazi:standards`).
 
-Codex plugins can only carry skills, not always-on instructions, so on Codex
-the standards arrive as the `standards` skill, which triggers when committing,
-commenting, or writing outward-facing text.
+On Codex the same session hook injects the standards (only — the policy is
+Claude-specific) once you've trusted it. The `standards` skill is the fallback
+on machines where the hook isn't trusted yet.
 
 The ssh URL matters while the repo is private: the `owner/repo` shorthand
 can't fetch it.
 
 ## Updates
 
-Claude auto-updates the plugin once the marketplace has auto-update on: either
-toggle it in `/plugin` → Marketplaces → dcvz, or set `"autoUpdate": true` on
-the `extraKnownMarketplaces.dcvz` entry in `~/.claude/settings.json`.
-
-Codex has no background updater; run this occasionally:
+Claude auto-updates on its own once the toggle above is set. Codex has no
+background updater; run this occasionally:
 
 ```
 codex plugin marketplace upgrade
