@@ -1,10 +1,8 @@
-<!-- BEGIN standards (managed by github.com/dcvz/dazi - scripts/sync) -->
-Shared coding standards for every agent. `scripts/sync` stamps this file into
-`~/.codex/AGENTS.md` on each machine; Codex reads that as global instructions,
-and Claude Code reaches it through an `@~/.codex/AGENTS.md` import that sync
-ensures in `~/.claude/CLAUDE.md`. (The repo's own CLAUDE.md is something else:
-Claude-only policy, delivered by the plugin's SessionStart hook.)
-Keep this file tool-neutral. Tool-specific rules belong in the tool's own config.
+Shared coding standards for every agent. Claude gets this file always-on through
+the plugin's SessionStart hook; Codex plugins can't carry always-on instructions,
+so there it arrives through the `standards` skill when committing, commenting,
+or writing outward-facing text. Keep it tool-neutral. Tool-specific rules belong
+in the tool's own config.
 
 # Commit messages
 
@@ -64,4 +62,3 @@ Never write:
 
 Fine, and human: apologizing for a slow reply, backticked paths, a thought that
 runs on a little, leaving the obvious unsaid.
-<!-- END standards -->

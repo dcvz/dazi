@@ -5,13 +5,7 @@ set -u
 
 ROOT="${CLAUDE_PLUGIN_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
 
-ctx=""
-# A sync-managed machine already gets the standards through the
-# ~/.claude/CLAUDE.md import of the stamped file; don't deliver them twice.
-if ! grep -qs "BEGIN standards" "$HOME/.codex/AGENTS.md"; then
-  ctx="$(cat "$ROOT/AGENTS.md" 2>/dev/null)"$'\n\n'
-fi
-ctx="$ctx$(cat "$ROOT/CLAUDE.md" 2>/dev/null)"
+ctx="$(cat "$ROOT/AGENTS.md" 2>/dev/null)"$'\n\n'"$(cat "$ROOT/CLAUDE.md" 2>/dev/null)"
 
 s="$ctx"
 s="${s//\\/\\\\}"

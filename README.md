@@ -19,8 +19,7 @@ session, and the skills come along namespaced (`/dazi:deslop`,
 
 Codex plugins can only carry skills, not always-on instructions, so on Codex
 the standards arrive as the `standards` skill, which triggers when committing,
-commenting, or writing outward-facing text. For always-on standards on Codex,
-add the sync below.
+commenting, or writing outward-facing text.
 
 The ssh URL matters while the repo is private: the `owner/repo` shorthand
 can't fetch it.
@@ -31,27 +30,16 @@ Claude auto-updates the plugin once the marketplace has auto-update on: either
 toggle it in `/plugin` → Marketplaces → dcvz, or set `"autoUpdate": true` on
 the `extraKnownMarketplaces.dcvz` entry in `~/.claude/settings.json`.
 
-Codex resolves plugin versions from `.codex-plugin/plugin.json` and caches per
-version. CI bumps that version whenever the payload changes, and any
-`codex plugin marketplace upgrade` (the sync runs one) picks it up.
-
-## Optional: always-on standards for Codex (my fleet)
-
-`scripts/sync` stamps `AGENTS.md` into `~/.codex/AGENTS.md` between BEGIN/END
-markers — Codex then reads it as global instructions — and ensures
-`~/.claude/CLAUDE.md` imports that file. Machine-specific context (like ci4's
-hub-host block from dcvz/hub) lives between other markers in the same file and
-is left alone. The plugin's hook detects the stamped block and skips its own
-standards injection, so nothing is delivered twice.
+Codex has no background updater; run this occasionally:
 
 ```
-git clone git@github.com:dcvz/dazi.git ~/.cache/dazi && ~/.cache/dazi/scripts/sync
+codex plugin marketplace upgrade
 ```
 
-Schedule it — cron on Linux; on macOS run the crontab command from a real
-terminal so you can approve the one-time TCC prompt (a headless agent hangs on
-it; a launchd agent works too):
+CI bumps the version in `.codex-plugin/plugin.json` whenever the payload
+changes, so the upgrade always sees new content (Codex caches per version).
 
-```
-( crontab -l 2>/dev/null; echo '17 9 * * * $HOME/.cache/dazi/scripts/sync >/dev/null 2>&1' ) | crontab -
-```
+Machine-specific context (like ci4's hub-host block) is not this repo's
+business — it lives in `~/.codex/AGENTS.md`, managed per machine (on hub hosts
+by dcvz/hub's provisioning), reaching Claude through an `@~/.codex/AGENTS.md`
+import in `~/.claude/CLAUDE.md`.
