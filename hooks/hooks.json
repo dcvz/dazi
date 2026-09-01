@@ -5,7 +5,17 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/session-start\""
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/inject\" SessionStart"
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/inject\" SubagentStart"
           }
         ]
       }

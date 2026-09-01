@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Inject the house standards as structured JSON. A Claude main session also gets
+# the Claude-only policy; subagents and Codex get the standards alone.
+# Must never fail or block the agent it feeds; always exits 0.
+set -u
+
+EVENT="${1:-SessionStart}"
+ROOT="${CLAUDE_PLUGIN_ROOT:-${PLUGIN_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}}"
+
+ctx="$(cat "$ROOT/AGENTS.md" 2>/dev/null)"
+# Codex sets PLUGIN_ROOT; CLAUDE.md is Claude-only, and delegation policy is a
+# main-thread concern, so subagents don't need it either.
+if [ "$EVENT" = "SessionStart" ] && [ -z "${PLUGIN_ROOT:-}" ]; then
+  ctx="$ctx"$'\n\n'"$(cat "$ROOT/CLAUDE.md" 2>/dev/null)"
+fi
+
+s="$ctx"
+s="${s//\\/\\\\}"
+s="${s//\"/\\\"}"
+s="${s//$'\n'/\\n}"
+s="${s//$'\t'/\\t}"
+s="${s//$'\r'/\\r}"
+
+printf '{"hookSpecificOutput":{"hookEventName":"%s","additionalContext":"%s"}}\n' "$EVENT" "$s"
+exit 0
