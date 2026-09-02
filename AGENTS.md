@@ -1,8 +1,6 @@
-Shared coding standards for every agent. Claude gets this file always-on through
-the plugin's SessionStart hook; Codex plugins can't carry always-on instructions,
-so there it arrives through the `standards` skill when committing, commenting,
-or writing outward-facing text. Keep it tool-neutral. Tool-specific rules belong
-in the tool's own config.
+Shared coding standards for every agent. Claude and Codex both get this file
+always-on through the plugin's session hook, and subagents get it too. Keep it
+tool-neutral. Tool-specific rules belong in the tool's own config.
 
 # Commit messages
 
