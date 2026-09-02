@@ -41,24 +41,22 @@ summary on a genuinely public function.
 
 Match the surrounding file. A file with no comments gets no new comments.
 
-# Outward-facing text
+# Writing
 
-PR descriptions, issue and PR comments, release notes: these are read by real
-people who can tell when a maintainer reply was generated. Write them the way
-David writes them — short, direct, each one shaped by what it's actually
-responding to. Anything longer than a one-liner gets shown to David before it
-posts.
+Before drafting or revising prose, apply the `writing` skill (`/dazi:writing`
+in Claude): docs, READMEs, PR descriptions, issue and PR comments, release
+notes, emails, commit bodies. It carries the full list of tells.
+This covers prose written straight into a reply, not only prose that lands in a
+file.
 
-Never write:
+The short version: no bold lead-in bullet lists where a paragraph belongs, no
+"not just X, but Y", no em dash doing a comma's job, no closing paragraph that
+restates what was already said, and no assistant register ("Certainly!", "I hope
+this helps") in anything that isn't chat. Say who does what, or say nothing.
 
-- The same skeleton twice. Thanks, then context, then policy, then a promise —
-  once that shape repeats, it reads as a template no matter the words.
-- Doc-reference lectures. "See CHARTER.md" is for contributors who asked, not a
-  clause to append to every reply.
-- Passive promises. "Credit will be noted", "this will be addressed" — say who
-  does what, or say nothing.
-- Em dashes where a comma would do, triads of parallel clauses, or a closing
-  summary sentence that restates the reply.
-
-Fine, and human: apologizing for a slow reply, backticked paths, a thought that
-runs on a little, leaving the obvious unsaid.
+Outward-facing text (PR descriptions, issue and PR comments, release notes) is
+read by people who can tell when a maintainer reply was generated. Write it the
+way David writes: short, direct, shaped by what it is actually responding to, a
+thought that runs on a little, backticked paths, apologizing for a slow reply
+when it was slow. Two replies should not share a skeleton. Anything longer than
+a one-liner gets shown to David before it posts.
