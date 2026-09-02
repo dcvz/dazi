@@ -23,8 +23,13 @@ Then two one-time steps:
 
 On Claude the plugin is self-contained: a SessionStart hook injects
 the standards (`AGENTS.md`) and the Claude-only policy (`CLAUDE.md`) into every
-session, and the skills come along namespaced (`/dazi:deslop`,
-`/dazi:prune-comments`, `/dazi:codex-delegate`, `/dazi:standards`).
+session, and the skills come along namespaced (`/dazi:writing`,
+`/dazi:deslop`, `/dazi:prune-comments`, `/dazi:codex-delegate`,
+`/dazi:standards`).
+
+`AGENTS.md` mandates `writing` before any prose is drafted, so the deep
+catalogue of AI tells loads on demand rather than sitting in context all
+session.
 
 On Codex the same session hook injects the standards (only — the policy is
 Claude-specific) once you've trusted it. The `standards` skill is the fallback
