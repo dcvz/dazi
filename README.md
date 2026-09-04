@@ -17,8 +17,18 @@ Then two one-time steps:
 1. Claude auto-update: `/plugin` → Marketplaces → dcvz → Enable auto-update
    (or set `"autoUpdate": true` on the `extraKnownMarketplaces.dcvz` entry in
    `~/.claude/settings.json`).
-2. Nothing for Codex — its skills are picked up on install. (Older versions
-   needed a "Hooks need review" approval; plugin hooks are gone as of CLI 0.153.)
+2. For always-on standards in Codex, add a pointer to `~/.codex/AGENTS.md`,
+   which Codex reads as global instructions:
+
+   ```
+   Before writing or changing code, writing a commit message, or drafting any
+   prose, follow the `dazi:standards` skill, and `dazi:writing` for prose.
+   ```
+
+   Without it Codex still gets the standards, but only when it decides the
+   `standards` skill applies. That is reliable for commit messages and patchy
+   for everything else. Keep the line outside any BEGIN/END marker blocks in
+   that file so per-machine provisioning doesn't overwrite it.
 
 On Claude the plugin is self-contained: a SessionStart hook injects
 the standards (`AGENTS.md`) and the Claude-only policy (`CLAUDE.md`) into every

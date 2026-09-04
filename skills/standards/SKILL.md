@@ -1,6 +1,6 @@
 ---
 name: standards
-description: House coding standards. Use before writing a commit message, adding or reviewing code comments, or drafting any outward-facing text (PR descriptions, issue/PR comments, release notes).
+description: House coding standards for code and prose. Use before writing or modifying any code, before writing a commit message, and before drafting or reviewing prose — code comments, docs, READMEs, PR descriptions, issue and PR comments, release notes.
 ---
 
 # Standards
