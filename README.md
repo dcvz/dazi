@@ -17,9 +17,8 @@ Then two one-time steps:
 1. Claude auto-update: `/plugin` → Marketplaces → dcvz → Enable auto-update
    (or set `"autoUpdate": true` on the `extraKnownMarketplaces.dcvz` entry in
    `~/.claude/settings.json`).
-2. Launch `codex` interactively once and accept the "Hooks need review" prompt
-   ("Trust all and continue"). Codex won't run the session hook until it's
-   trusted, and it re-asks whenever the hook changes.
+2. Nothing for Codex — its skills are picked up on install. (Older versions
+   needed a "Hooks need review" approval; plugin hooks are gone as of CLI 0.153.)
 
 On Claude the plugin is self-contained: a SessionStart hook injects
 the standards (`AGENTS.md`) and the Claude-only policy (`CLAUDE.md`) into every
@@ -31,9 +30,12 @@ session, and the skills come along namespaced (`/dazi:writing`,
 catalogue of AI tells loads on demand rather than sitting in context all
 session.
 
-On Codex the same session hook injects the standards (only — the policy is
-Claude-specific) once you've trusted it. The `standards` skill is the fallback
-on machines where the hook isn't trusted yet.
+On Codex the standards arrive through the `standards` skill, which fires when
+committing, commenting, or writing prose. Codex removed plugin-provided hooks in
+CLI 0.153 (`codex features list` shows `plugin_hooks` as `removed`), so there is
+no always-on path there any more; the `hooks/` directory and the `hooks` key in
+`.codex-plugin/plugin.json` are kept for Claude and in case Codex restores the
+feature.
 
 The ssh URL matters while the repo is private: the `owner/repo` shorthand
 can't fetch it.

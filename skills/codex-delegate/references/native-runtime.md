@@ -44,8 +44,14 @@ Use `--base <branch>` for a branch comparison or `--commit <sha>` for one commit
 
 ## Model and reasoning effort
 
-Leave model and effort unset unless the user or workflow needs a specific choice. Inspect current
-capabilities rather than copying a stale list:
+Leave the model unset unless the user or workflow needs a specific one; the account default is
+normally the newest and most capable. Do not leave effort unset for load-bearing work. The default
+model as of September 2026 is `gpt-6-astra`, whose catalog default reasoning level is `low`, and an
+unset run reports `reasoning effort: none` in its header. Delegating without setting effort
+therefore buys the shallowest setting on the ladder, and nothing warns you. Adversarial review,
+design critique, and hard implementation want `high` or above.
+
+Inspect current capabilities rather than copying a stale list:
 
 ```bash
 codex debug models
@@ -55,15 +61,16 @@ Effort is model-dependent. For example, when the catalog confirms support:
 
 ```bash
 codex exec --ephemeral \
-  -m gpt-5.6-sol \
+  -m gpt-6-astra \
   -c 'model_reasoning_effort="max"' \
   -s read-only \
   "Analyze the proposed design."
 ```
 
-`max` means the deepest single-agent reasoning. `ultra` may enable automatic delegation and changes
-the orchestration semantics; use it only when that is intended. Do not claim a fixed model ran
-unless it was selected and available.
+`max` is the deepest single-agent reasoning. `ultra` adds automatic task delegation and changes the
+orchestration semantics, so use it only when that is intended. Do not claim a fixed model ran unless
+it was selected and available; `codex exec` prints the resolved model and effort in its header, so
+read that back rather than assuming.
 
 ## Structured output
 

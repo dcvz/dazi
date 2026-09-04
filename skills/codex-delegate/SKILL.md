@@ -75,6 +75,8 @@ Claude workflow.
 - Treating `--ephemeral` as a privacy guarantee. It only promises that local session rollout files
   are not persisted.
 - Assuming effort names are universal. They are model-dependent; inspect the current model catalog.
+- Leaving effort unset and assuming a deep run. The current default model reasons at `low` unless
+  told otherwise, so an adversarial pass without an explicit effort is shallow and looks fine.
 - Prompting for ad-hoc JSON and scraping stdout when native `--output-schema` and
   `--output-last-message` can provide a stable contract.
 - Claiming a fixed model ran without passing `--model` and verifying that it is available.
