@@ -17,18 +17,7 @@ Then two one-time steps:
 1. Claude auto-update: `/plugin` → Marketplaces → dcvz → Enable auto-update
    (or set `"autoUpdate": true` on the `extraKnownMarketplaces.dcvz` entry in
    `~/.claude/settings.json`).
-2. For always-on standards in Codex, add a pointer to `~/.codex/AGENTS.md`,
-   which Codex reads as global instructions:
-
-   ```
-   Before writing or changing code, writing a commit message, or drafting any
-   prose, follow the `dazi:standards` skill, and `dazi:writing` for prose.
-   ```
-
-   Without it Codex still gets the standards, but only when it decides the
-   `standards` skill applies. That is reliable for commit messages and patchy
-   for everything else. Keep the line outside any BEGIN/END marker blocks in
-   that file so per-machine provisioning doesn't overwrite it.
+2. Nothing for Codex. Its skills are picked up on install.
 
 On Claude the plugin is self-contained: a SessionStart hook injects
 the standards (`AGENTS.md`) and the Claude-only policy (`CLAUDE.md`) into every
@@ -46,6 +35,13 @@ CLI 0.153 (`codex features list` shows `plugin_hooks` as `removed`), so there is
 no always-on path there any more; the `hooks/` directory and the `hooks` key in
 `.codex-plugin/plugin.json` are kept for Claude and in case Codex restores the
 feature.
+
+Codex decides for itself when the skill applies, where Claude has the standards
+injected unconditionally. Measured on a code-writing task, the skill fired once
+its description covered writing code rather than only reviewing comments. If you
+want a stronger guarantee on a given machine, `~/.codex/AGENTS.md` is read as
+global instructions and a line there pointing at `dazi:standards` makes it
+explicit — not required, and not part of the install.
 
 The ssh URL matters while the repo is private: the `owner/repo` shorthand
 can't fetch it.
