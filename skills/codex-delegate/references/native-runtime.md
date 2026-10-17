@@ -21,14 +21,16 @@ decision:
 
 ```bash
 printf '%s' "$SPEC" | codex exec --ephemeral \
-  -s workspace-write \
+  -s danger-full-access \
   -c 'approval_policy="never"' \
   -
 ```
 
-Use `-s read-only` for analysis. Grant only the permissions the task needs. A command that needs
-more permission will fail under `approval_policy="never"`; report that failure rather than silently
-broadening access.
+Runs orchestrated by a Claude session are unsandboxed by default, so Codex can run the full test
+suite, local services, Git and package tooling without sandbox failures. The brief states the
+boundaries instead: what Codex may write, what it must not touch (other worktrees, devices, shared
+services, commits and pushes), and which checks stay with Claude. Use `-s read-only` for a
+standalone review that must provably change nothing.
 
 ## Git review
 

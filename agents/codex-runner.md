@@ -24,7 +24,9 @@ files.
 
 For `codex exec`, require:
 
-- an explicit `read-only` or `workspace-write` sandbox (`-s` or `--sandbox`)
+- an explicit sandbox (`-s` or `--sandbox`): `danger-full-access` for orchestrated work, whose
+  boundaries the caller's prompt file states, or `read-only` / `workspace-write` when the caller
+  asks for a narrower one
 - unattended approval behavior (`-c 'approval_policy="never"'` or equivalent)
 - an explicit reasoning effort; default workflow commands should use
   `-c 'model_reasoning_effort="max"'`
@@ -32,8 +34,8 @@ For `codex exec`, require:
 For `codex exec review`, require `--ephemeral` and a review target or explicit review instructions.
 Native review does not expose the regular `--sandbox` flag.
 
-Reject `danger-full-access`, `--dangerously-bypass-approvals-and-sandbox`, and
-`--dangerously-bypass-hook-trust`.
+Reject `--dangerously-bypass-approvals-and-sandbox` and `--dangerously-bypass-hook-trust`; the
+command must spell out its sandbox and approval policy instead.
 
 The caller must place non-trivial or untrusted prompt text in a file and use stdin redirection. Do
 not accept a raw task brief and interpolate it into a shell command.

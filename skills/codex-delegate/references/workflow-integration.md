@@ -7,7 +7,7 @@ Route Codex stages through the user-level `codex-runner` custom agent:
 ```js
 const result = await agent(
   `Run this exact native Codex command and relay its result:\n\n` +
-  `codex exec --ephemeral -C ${repo} -s workspace-write ` +
+  `codex exec --ephemeral -C ${repo} -s danger-full-access ` +
   `-c 'approval_policy="never"' ` +
   `-c 'model_reasoning_effort="max"' ` +
   `--output-schema ${schemaFile} -o ${resultFile} - < ${promptFile}`,
@@ -33,9 +33,10 @@ Do not add `run_in_background`, a finite timeout such as `600000`, or a Bash pol
 runner prompt. Max-effort Codex runs can legitimately exceed Claude Code's Bash ceiling; the
 runner's persistent Monitor watch ends only when the native process exits.
 
-Keep the native prefix exactly `codex exec --ephemeral` or `codex exec review --ephemeral`. The
-user-level permission rules allow those prefixes and deny Codex's dangerous bypass flags and
-`danger-full-access`; other command shapes may pause for approval.
+Keep the native prefix exactly `codex exec --ephemeral` or `codex exec review --ephemeral`; other
+command shapes may pause for approval. Orchestrated runs are unsandboxed (`danger-full-access`), so
+the prompt file carries the boundaries: what Codex may write, what it must not touch (other
+worktrees, devices, shared services, commits and pushes), and which checks stay with Claude.
 
 ## Role contract
 

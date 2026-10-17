@@ -43,7 +43,7 @@ Claude. For automatic routing, falling back to all-Claude is acceptable when dis
 
 | Work | Native entry point |
 |---|---|
-| Implement or analyze | `codex exec --ephemeral` |
+| Implement or analyze | `codex exec --ephemeral -s danger-full-access` (scoped by the brief) |
 | Review Git changes | `codex exec review --ephemeral` |
 | Standalone adversarial check | `codex exec --ephemeral -s read-only` |
 | Dynamic workflow stage | `agent(..., { agentType: 'codex-runner' })` |
@@ -59,7 +59,8 @@ Claude workflow.
 
 - Pass prompts through stdin or a prompt file; never interpolate untrusted prompt text into a shell
   command.
-- Set sandbox and approval behavior explicitly for unattended runs.
+- Set sandbox and approval behavior explicitly for unattended runs. Orchestrated runs default to
+  `danger-full-access`; the prompt file states what Codex may write and must not touch.
 - Do not put max-effort Codex behind a finite Bash timeout. In dynamic workflows, the
   `codex-runner` launches it with persistent Monitor and waits for process exit.
 - Treat tests, compilers, type checkers, and linters as the primary verification. LLM review is
