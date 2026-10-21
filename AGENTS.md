@@ -18,6 +18,19 @@ So: `git commit -m "fix: don't reset position on the second load"` and that is t
 whole command. If a change genuinely needs a paragraph of explanation, that is a
 signal to split the commit, not to write the paragraph.
 
+# Code
+
+Write the least code that does the task, in the style of the code around it.
+
+- Add a layer, wrapper, option or flag only when it has a second user or a named reason,
+  such as a network or test boundary.
+- Don't defend against cases that can't happen, duplicate logic that already exists, or
+  write tests that only assert themselves.
+- Leave alone what the task doesn't need: no drive-by reformatting, renames or reordering.
+
+Before finishing, read the diff as this repo's maintainer would. Anything the neighbouring
+code wouldn't have comes out, unless something still depends on it.
+
 # Code comments
 
 Default to no comment. Code shows *how*; a comment earns its place only by carrying
