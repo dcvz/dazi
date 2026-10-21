@@ -31,6 +31,11 @@ the plain word you skipped was usually better. Swapping in a synonym does not
 fix it — the tell is the abstraction, not the specific word, so *pivotal* to
 *vital* changes nothing. Write the plain version instead.
 
+Intensifiers and adverbs work the same way: *actually*, *really*, *genuinely*,
+*truly*, *properly*, and *quietly*, *deeply*, *fundamentally*, *remarkably*. "The
+actual problem" is the problem. Delete the word when it adds weight without
+changing the meaning.
+
 ## Sentence shapes
 
 **Negative parallelism.** "Not just X, but Y." "It's not X, it's Y." "No X, no
@@ -53,12 +58,35 @@ the entry point" wearing a costume.
 *in the context of*. If two things are connected, say how: caused by, used for,
 written by, part of.
 
+**Set-ups.** "The result? Devastating." "Here's the catch." "Here's what most
+people miss." A question nobody asked, or a drumroll before the point. Make the
+point.
+
+**Counting.** "For two reasons." "Three things stand out." The count tells the
+reader nothing the list doesn't, and it goes stale when someone adds an item.
+
+**Comma-clipped tails.** A short fragment hung off a comma to close a sentence:
+"asked forty times, mentoring." Work the fragment into the sentence, or cut it.
+
 **Uniformity.** Paragraphs that all open the same way, sentences that run to the
 same length, sections that all follow claim then explanation then imperative.
 Human writing is lumpy. A three-word sentence sits next to a long one; a section
 runs two lines because there wasn't more to say. Prose containing none of the
 tells above can still read as generated when every unit is the same size and
 shape.
+
+## Names
+
+**Synonym cycling.** Pick one noun for one thing and repeat it. A dashboard that
+becomes an interface, then a portal, then the analytics hub reads as four
+different things.
+
+**Invented labels.** "The supervision paradox", "config creep", "the onboarding
+trap": a coined compound used as if it were an established term. Describe the
+thing instead.
+
+**Self-echo.** Reusing your own earlier phrase as if paying it off. It reads as a
+callback, and is usually narrow vocabulary resurfacing.
 
 ## Formatting
 
@@ -79,7 +107,8 @@ repeated fields. It stops working as a way of sounding emphatic.
 aside or a reversal. It is wrong as a general-purpose connector, three times a
 paragraph.
 
-**Also:** headings in Title Case, a heading that restates the document title,
+**Also:** headings in Title Case, generic Wh-headings that could sit on any
+section ("Why it matters"), a heading that restates the document title,
 headings that contain only more headings, emoji as bullets or section markers,
 horizontal rules between every section, curly quotes pasted in from nowhere, and
 tables for things that aren't tabular.
@@ -112,23 +141,44 @@ vagueness, because it survives review by looking rigorous.
 certain cases." Each qualifier drains the sentence. Either you know it or you
 don't; say which.
 
+**Quotable one-liners.** A standalone line built to be quoted: "Every metric
+that rewards volume punishes leverage." If it carries no information, cut it.
+
+**Docs as a diary.** A doc says how things are now. "We changed X to Y",
+"previously" and "now uses" belong in the commit or the PR.
+
 **Analysis that isn't.** A paragraph that describes what something does and calls
 it significance. If removing the sentence loses no information, it was filler.
+So does a trailing *-ing* clause that claims significance without explaining
+it: "..., highlighting its importance", "..., reflecting broader trends".
+
+## Replies
+
+Lead with the answer, the change or the decision. Don't announce what's coming
+("Two constraints shape the design.") or restate the question, and make the
+point before the evidence for it.
+
+Leave out the working: what you checked, weighed or plan to do next. Explain the
+reasoning when it's asked for, or when the reader needs it to act.
+
+Match the detail to the ask. A yes-or-no question usually needs only the answer
+and any qualification that changes it; offer more rather than giving it unasked.
 
 ## Assistant register in things that aren't chat
 
 Chat habits leaking into documents and review comments: "Of course!",
 "Certainly!", "You're absolutely right", "I hope this helps", "Let me know if
 you'd like...", "Would you like me to...". Also meta-commentary about the writing
-("This section covers...", "In this document we will...") and unrequested next
-steps appended at the end.
+("This section covers...", "In this document we will..."), unrequested next
+steps appended at the end, and the teaching voice: "Let's break this down",
+"Let's dive in", "Think of it as..." before an analogy nobody asked for.
 
 A README does not address the reader as a client. A PR comment is not a support
 ticket reply.
 
 ## Register
 
-Short, varied, shaped by what it's actually responding to. Sentences of
+Short, varied, shaped by what it's responding to. Sentences of
 different lengths. A thought that runs on a little. Backticked paths. Apologizing
 for a slow reply when it was slow. Leaving the obvious unsaid.
 
