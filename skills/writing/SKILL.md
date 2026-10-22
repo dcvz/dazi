@@ -14,6 +14,12 @@ one in every paragraph. Over-correcting has its own smell: prose that visibly
 avoids ordinary words reads worse than prose that used one. Judgment, not a
 linter.
 
+## Length
+
+Give the reader the main points they need, then stop: what changed or what you found, why, and
+anything they have to act on. A PR description says that in a sentence or two. The diff shows the
+details, so don't list them.
+
 ## Vocabulary
 
 Watch for: delve, crucial, pivotal, underscore, showcase, highlight (as a verb),
@@ -67,6 +73,10 @@ reader nothing the list doesn't, and it goes stale when someone adds an item.
 
 **Comma-clipped tails.** A short fragment hung off a comma to close a sentence:
 "asked forty times, mentoring." Work the fragment into the sentence, or cut it.
+
+**Verbless lists.** A sentence built from phrases chained with semicolons: "Three beats written
+first; a separate spec, never committed; data restored through the API." It reads as notes. Write
+sentences with verbs, or make a real list.
 
 **Uniformity.** Paragraphs that all open the same way, sentences that run to the
 same length, sections that all follow claim then explanation then imperative.
