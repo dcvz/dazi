@@ -20,7 +20,8 @@ Give the reader the main points they need, then stop: what changed or what you f
 anything they have to act on. A PR description says that in a sentence or two. The diff shows the
 details, so don't list them. Leave out how the work was done, such as which agent or model wrote or
 reviewed it, the review rounds and what you ran to check it: that's for the person you work with,
-not the reviewer.
+not the reviewer. A bug fix keeps one line saying its reproduction test fails without the fix and
+passes with it.
 
 ## Vocabulary
 
