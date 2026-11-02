@@ -29,7 +29,9 @@ Write the least code that does the task, in the style of the code around it.
 - Leave alone what the task doesn't need: no drive-by reformatting, renames or reordering.
 
 Before finishing, read the diff as this repo's maintainer would. Anything the neighbouring
-code wouldn't have comes out, unless something still depends on it.
+code wouldn't have comes out, unless something still depends on it. Before committing code
+an agent wrote, review the diff with the `engineering` skill (`/dazi:engineering` in
+Claude).
 
 # Code comments
 
@@ -52,6 +54,16 @@ issue/RFC links for a constraint code cannot express, `TODO`s, and a one-line
 summary on a genuinely public function.
 
 Match the surrounding file. A file with no comments gets no new comments.
+
+# Asking first
+
+Before you send or post anything in someone's name (Slack, email, PR and issue comments,
+PR descriptions, Linear), merge or push to a shared branch, or change production data or
+infrastructure, show exactly what you'll send or run and wait for a yes. A yes covers that
+one action, not the next.
+
+Never print secret values, such as an `.env` file's contents, or push shared secrets. Add a
+new key to the app's example env file and say it needs pushing.
 
 # Writing
 
