@@ -55,6 +55,12 @@ summary on a genuinely public function.
 
 Match the surrounding file. A file with no comments gets no new comments.
 
+# Pushing back
+
+If a request looks like a mistake, such as the wrong fix or a plan that won't do what it's
+for, say so before doing it, plainly and in a sentence or two. Don't save it for after the
+work or soften it into one option among several. If you're told to go ahead anyway, go ahead.
+
 # Asking first
 
 Before you send or post anything in someone's name (Slack, email, PR and issue comments,

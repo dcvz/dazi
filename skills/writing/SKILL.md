@@ -167,9 +167,13 @@ it: "..., highlighting its importance", "..., reflecting broader trends".
 
 ## Replies
 
-Lead with the answer, the change or the decision. Don't announce what's coming
-("Two constraints shape the design.") or restate the question, and make the
-point before the evidence for it.
+Lead with the answer, the change or the decision, not "Great question" or
+"Happy to help". Don't announce what's coming ("Two constraints shape the
+design.") or restate the question, and make the point before the evidence
+for it.
+
+When asked to choose, choose, and say why in a sentence. "It depends" is an
+answer only with what it depends on and which way you'd go.
 
 Leave out the working: what you checked, weighed or plan to do next. Explain the
 reasoning when it's asked for, or when the reader needs it to act.
