@@ -13,8 +13,8 @@ what survives the test below.
 The caller's files or diff. Otherwise the current diff against the base branch
 (default `main`), including the working tree. Only touch comments inside that scope.
 
-If you wrote the code under review yourself, spawn a subagent (`Explore` or
-`general-purpose`) to produce the kill list before editing. Authors defend their own
+If you wrote the code under review yourself, spawn a subagent (in Claude Code,
+`Explore` or `general-purpose`) to produce the kill list before editing. Authors defend their own
 comments; a fresh reader does not. Pass it the scope and this file. Do not restate
 the rules to it.
 
