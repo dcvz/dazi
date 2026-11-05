@@ -9,7 +9,7 @@ const result = await agent(
   `Run this exact native Codex command and relay its result:\n\n` +
   `codex exec --ephemeral -C ${repo} -s danger-full-access ` +
   `-c 'approval_policy="never"' ` +
-  `-c 'model_reasoning_effort="max"' ` +
+  `-m gpt-6.1-sol -c 'model_reasoning_effort="xhigh"' ` +
   `--output-schema ${schemaFile} -o ${resultFile} - < ${promptFile}`,
   {
     label: 'codex:implement',

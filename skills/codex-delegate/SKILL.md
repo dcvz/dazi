@@ -24,6 +24,12 @@ default, not an override of user intent. If the user explicitly requests Codex f
 implementation and review, comply and state that the second pass is self-review rather than an
 independent cross-model review.
 
+The role picks the model. Codex implements on the newest Sol model (`gpt-6.1-sol` as of November
+2026) at `xhigh`, and challenges on the newest Astra model (`gpt-6-astra`) at `xhigh`, or `max` when
+the claim under review is expensive to get wrong. Pass both the model and the effort on every run;
+[references/native-runtime.md](references/native-runtime.md) shows the commands and how to check
+for newer models.
+
 ## Use native Codex directly
 
 Outside a dynamic workflow, call the `codex` executable directly. Inside a dynamic workflow, use
@@ -76,8 +82,9 @@ Claude workflow.
 - Treating `--ephemeral` as a privacy guarantee. It only promises that local session rollout files
   are not persisted.
 - Assuming effort names are universal. They are model-dependent; inspect the current model catalog.
-- Leaving effort unset and assuming a deep run. The current default model reasons at `low` unless
-  told otherwise, so an adversarial pass without an explicit effort is shallow and looks fine.
+- Leaving the model or effort unset. The configured default isn't chosen per role, and an unset
+  effort falls back to the model's catalog default (`low` for Sol), so the run can be shallower
+  than it looks and nothing warns you.
 - Prompting for ad-hoc JSON and scraping stdout when native `--output-schema` and
   `--output-last-message` can provide a stable contract.
 - Claiming a fixed model ran without passing `--model` and verifying that it is available.

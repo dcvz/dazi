@@ -46,20 +46,31 @@ Use `--base <branch>` for a branch comparison or `--commit <sha>` for one commit
 
 ## Model and reasoning effort
 
-Leave the model unset unless the user or workflow needs a specific one; the account default is
-normally the newest and most capable. Do not leave effort unset for load-bearing work. The default
-model as of September 2026 is `gpt-6-astra`, whose catalog default reasoning level is `low`, and an
-unset run reports `reasoning effort: none` in its header. Delegating without setting effort
-therefore buys the shallowest setting on the ladder, and nothing warns you. Adversarial review,
-design critique, and hard implementation want `high` or above.
+Set the model and the effort on every run; the defaults don't follow the role. Implementation runs on
+the newest Sol model at `xhigh`. A challenge runs on the newest Astra model at `xhigh`, or `max` when
+the claim is expensive to get wrong: a load-bearing design, or a correctness or security claim. As of
+November 2026 those models are `gpt-6.1-sol` and `gpt-6-astra`. Whatever `~/.codex/config.toml`
+sets as the default isn't chosen per role, and an unset effort falls back to the model's catalog
+default, which is `low` for `gpt-6.1-sol`.
 
-Inspect current capabilities rather than copying a stale list:
+The catalog changes with each release, so check it rather than trusting the names above. When a
+newer Sol or Astra appears, use it:
 
 ```bash
 codex debug models
 ```
 
-Effort is model-dependent. For example, when the catalog confirms support:
+Effort is model-dependent. Implementing, when the catalog confirms support:
+
+```bash
+codex exec --ephemeral \
+  -m gpt-6.1-sol \
+  -c 'model_reasoning_effort="xhigh"' \
+  -s workspace-write \
+  - < implement-prompt.md
+```
+
+Challenging a design that would be expensive to get wrong:
 
 ```bash
 codex exec --ephemeral \

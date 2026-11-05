@@ -28,8 +28,9 @@ For `codex exec`, require:
   boundaries the caller's prompt file states, or `read-only` / `workspace-write` when the caller
   asks for a narrower one
 - unattended approval behavior (`-c 'approval_policy="never"'` or equivalent)
-- an explicit reasoning effort; default workflow commands should use
-  `-c 'model_reasoning_effort="max"'`
+- an explicit model and reasoning effort: `-m gpt-6.1-sol -c 'model_reasoning_effort="xhigh"'`
+  to implement, `-m gpt-6-astra` with `xhigh` (or `max` for expensive claims) to challenge, or
+  newer Sol and Astra models when the codex-delegate skill names them
 
 For `codex exec review`, require `--ephemeral` and a review target or explicit review instructions.
 Native review does not expose the regular `--sandbox` flag.
