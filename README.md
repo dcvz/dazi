@@ -3,12 +3,17 @@
 Shared agent setup for my machines: coding standards, Codex delegation policy,
 and skills, installable into both Claude Code and Codex as a plugin.
 
+It's written for me. The standards refer to me by name, ask agents to show me
+outward-facing text before it posts, and `CLAUDE.md` carries my standing opt-in
+to Claude Code's Workflow tool. Installed as-is, your sessions would get all of
+that too, so fork it and make it yours instead.
+
 ## Install
 
 ```
-claude plugin marketplace add git@github.com:dcvz/dazi.git
+claude plugin marketplace add dcvz/dazi
 claude plugin install dazi@dcvz
-codex plugin marketplace add git@github.com:dcvz/dazi.git
+codex plugin marketplace add dcvz/dazi
 codex plugin add dazi@dcvz
 ```
 
@@ -43,9 +48,6 @@ want a stronger guarantee on a given machine, `~/.codex/AGENTS.md` is read as
 global instructions and a line there pointing at `dazi:standards` makes it
 explicit — not required, and not part of the install.
 
-The ssh URL matters while the repo is private: the `owner/repo` shorthand
-can't fetch it.
-
 ## Updates
 
 Claude auto-updates on its own once the toggle above is set. Codex has no
@@ -58,7 +60,6 @@ codex plugin marketplace upgrade
 CI bumps the version in `.codex-plugin/plugin.json` whenever the payload
 changes, so the upgrade always sees new content (Codex caches per version).
 
-Machine-specific context (like ci4's hub-host block) is not this repo's
-business — it lives in `~/.codex/AGENTS.md`, managed per machine (on hub hosts
-by dcvz/hub's provisioning), reaching Claude through an `@~/.codex/AGENTS.md`
-import in `~/.claude/CLAUDE.md`.
+Machine-specific context stays out of this repo. It lives in each machine's
+`~/.codex/AGENTS.md`, which Claude reads through an `@~/.codex/AGENTS.md` import
+in `~/.claude/CLAUDE.md`.
