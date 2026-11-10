@@ -28,7 +28,7 @@ On Claude the plugin is self-contained: a SessionStart hook injects
 the standards (`AGENTS.md`) and the Claude-only policy (`CLAUDE.md`) into every
 session, and the skills come along namespaced (`/dazi:writing`,
 `/dazi:engineering`, `/dazi:prune-comments`, `/dazi:codex-delegate`,
-`/dazi:standards`).
+`/dazi:catch-me-up`, `/dazi:standards`).
 Two more hooks keep `writing` in play. Each message gets a line asking the agent
 to audit any draft meant for someone else before showing it, and a `gh` command
 that posts PR or issue text is held back once, until the agent has audited the
