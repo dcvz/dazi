@@ -1,0 +1,1 @@
+If your reply will include a draft for someone else to read, such as a Slack message, email, PR description, PR or issue comment, or doc, load the `dazi:writing` skill again and run its "Auditing a draft" steps on the draft before you show it.

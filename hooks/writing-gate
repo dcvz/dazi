@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Matches the raw hook JSON because jq isn't guaranteed on PATH for hooks.
+input=$(cat)
+re='gh (pr|issue) (create|comment)|gh (pr|issue) (edit|review|close|reopen) .*(--body|--comment|-[bcF] )|gh api .*body='
+[[ $input =~ $re ]] || exit 0
+[[ $input == *'# writing-audited'* ]] && exit 0
+
+cat <<'EOF'
+{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"deny","permissionDecisionReason":"This posts text in someone's name. First load the dazi:writing skill again and run its \"Auditing a draft\" steps on the text. If that changes text the person already approved, show them the new version and wait for a yes. Then run the command again with `# writing-audited` as a shell comment after the command, outside the body."}}
+EOF
